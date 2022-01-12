@@ -1,22 +1,35 @@
-;;; init-preload-local.el --- Summary
+;;; init.el --- Xiaoman's configuration -*- lexical-binding: t -*-
 ;;; Commentary:
+
+;; This file is xiaoman's personal configuration.
+
 ;;; Code:
 
-;; My mumble config
-(setq-default fill-column 80)
+;; Enable orgmode template shortcuts.
+(require 'org-tempo)
 
-(defun my-c++-mode-hook ()
-  (setq c-basic-offset 8)
-  (c-set-offset 'substatement-open 0))
-(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+;; Globalized column width.
+(setq-default fill-column 79)
 
-(setq-default c-basic-offset 8)
+;; Scroll half pages up/down.
+(global-set-key (kbd "C-v") 'View-scroll-half-page-forward)
+(global-set-key (kbd "M-v") 'View-scroll-half-page-backward)
 
-(global-set-key (kbd "M-o") 'switch-window)
+;; Disable level indention in orgmode.
+(setq-default org-adapt-indentation nil)
 
-(setq org-adapt-indentation nil)
+;; Smooth scrolling.
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
 
-;; From "Linux kernel coding style"
+;; Use anaconda for python virtual environment.
+(setenv "WORKON_HOME" "/home/schen/anaconda3/envs")
+(pyvenv-mode 1)
+
+
+;; Use kernel style guide in c-mode
 (defun c-lineup-arglist-tabs-only (ignored)
   "Line up argument lists by tabs, not spaces"
   (let* ((anchor (c-langelem-pos c-syntactic-element))
@@ -41,11 +54,12 @@
             (let ((filename (buffer-file-name)))
               ;; Enable kernel mode for the appropriate files
               (when (and filename
-                         (string-match (expand-file-name "~/github/linux")
+                         (string-match (expand-file-name "~/")
                                        filename))
                 (setq indent-tabs-mode t)
                 (setq show-trailing-whitespace t)
                 (c-set-style "linux-tabs-only")))))
+
 
 (provide 'init-preload-local)
 ;;; init-preload-local.el ends here
