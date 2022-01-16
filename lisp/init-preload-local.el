@@ -6,10 +6,10 @@
 ;;; Code:
 
 ;; Enable orgmode template shortcuts.
-(require 'org-tempo)
+;; (require 'org-tempo)
 
 ;; Globalized column width.
-(setq-default fill-column 79)
+(setq-default fill-column 80)
 
 ;; Scroll half pages up/down.
 (global-set-key (kbd "C-v") 'View-scroll-half-page-forward)
@@ -25,13 +25,12 @@
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
 ;; Use anaconda for python virtual environment.
-(setenv "WORKON_HOME" "/home/schen/anaconda3/envs")
-(pyvenv-mode 1)
+;; (setenv "WORKON_HOME" "/home/schen/anaconda3/envs")
+;; (pyvenv-mode 1)
 
-
-;; Use kernel style guide in c-mode
+;; Use kernel style guide in c-mode.
 (defun c-lineup-arglist-tabs-only (ignored)
-  "Line up argument lists by tabs, not spaces"
+  "IGNORED Line up argument lists by tabs, not spaces."
   (let* ((anchor (c-langelem-pos c-syntactic-element))
          (column (c-langelem-2nd-pos c-syntactic-element))
          (offset (- (1+ column) anchor))
@@ -54,7 +53,7 @@
             (let ((filename (buffer-file-name)))
               ;; Enable kernel mode for the appropriate files
               (when (and filename
-                         (string-match (expand-file-name "~/")
+                         (string-match (expand-file-name "/home/shichen/")
                                        filename))
                 (setq indent-tabs-mode t)
                 (setq show-trailing-whitespace t)
