@@ -16,7 +16,7 @@
 (global-set-key (kbd "M-v") 'View-scroll-half-page-backward)
 
 ;; Disable level indention in orgmode.
-(setq-default org-adapt-indentation nil)
+;; (setq-default org-adapt-indentation nil)
 
 ;; Smooth scrolling.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
