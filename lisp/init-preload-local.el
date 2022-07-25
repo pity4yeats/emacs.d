@@ -11,10 +11,6 @@
 ;; Globalized column width.
 (setq-default fill-column 80)
 
-;; Scroll half pages up/down.
-(global-set-key (kbd "C-v") 'View-scroll-half-page-forward)
-(global-set-key (kbd "M-v") 'View-scroll-half-page-backward)
-
 ;; Disable level indention in orgmode.
 ;; (setq-default org-adapt-indentation nil)
 
