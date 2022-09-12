@@ -10,10 +10,10 @@
 
 ;; (global-set-key (kbd "C-c C-e") 'eval-region)
 
-;; (setq package-archives '(("gnu" . "http://mirrors.ustc.edu.cn/elpa/gnu/")
-;;                          ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
-;;                          ("nongnu" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")
-;;                          ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+(setq package-archives '(("gnu" . "http://mirrors.ustc.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
+                         ("nongnu" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")
+                         ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
 ;; Globalized column width.
 (setq-default fill-column 80)
@@ -70,11 +70,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-
-(require 'use-package)
-
 ;; (load-theme 'leuven t)
-
 
 (use-package org-roam
   :ensure t
