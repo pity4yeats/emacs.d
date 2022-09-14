@@ -44,6 +44,7 @@
 
 ;; Allow users to provide an optional "init-preload-local.el"
 (require 'init-preload-local nil t)
+(require 'init-roam)
 
 ;; Load configs for specific features and modes
 (require-package 'diminish)
