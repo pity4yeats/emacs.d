@@ -6,25 +6,8 @@
 (use-package org-roam
   :ensure t
   :custom
-  (org-roam-directory (file-truename "/home/shichen/notes/roam"))
+  (org-roam-directory (file-truename "~/roam"))
   (setq org-roam-dailies-directory "daily/")
-  (setq org-roam-capture-templates
-        '(("m" "main" plain
-           "%?"
-           :if-new (file+head "main/${slug}.org"
-                              "#+title: ${title}\n")
-           :immediate-finish t
-           :unnarrowed t)
-          ("r" "reference" plain "%?"
-           :if-new
-           (file+head "reference/${title}.org" "#+title: ${title}\n")
-           :immediate-finish t
-           :unnarrowed t)
-          ("a" "article" plain "%?"
-           :if-new
-           (file+head "articles/${title}.org" "#+title: ${title}\n#+filetags: :article:\n")
-           :immediate-finish t
-           :unnarrowed t)))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
@@ -42,9 +25,39 @@
   (require 'org-roam-protocol))
 
 
-(setq org-journal-dir "/home/shichen/notes/roam/journal")
+(setq org-roam-capture-templates
+      '(("a" "Agenda" plain
+         "%?"
+         :if-new (file+head "agenda/${slug}.org"
+                            "#+title: ${title}\n#+options: ^:nil\n")
+         :immediate-finish t
+         :unnarrowed t)
+        ("t" "Temporary (TBD - aka 'To Be Determined')" plain
+         "%?"
+         :if-new (file+head "tmp/${slug}.org"
+                            "#+title: ${title}\n#+options: ^:nil\n")
+         :immediate-finish t
+         :unnarrowed t)
+        ("r" "RTS (RealTimeScheduling - aka 'RATS')" plain
+         "%?"
+         :if-new (file+head "rts/${slug}.org"
+                            "#+title: ${title}\n#+options: ^:nil\n")
+         :immediate-finish t
+         :unnarrowed t)
+        ("b" "BPF" plain "%?"
+         :if-new
+         (file+head "bpf/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n")
+         :immediate-finish t
+         :unnarrowed t)
+        ("m" "Memory" plain "%?"
+         :if-new
+         (file+head "mm/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n")
+         :immediate-finish t
+         :unnarrowed t)))
 
-;; (setq org-agenda-files (list "~/notes/roam"))
+(setq org-journal-dir "~/roam/journal")
+
+(setq org-agenda-files (list "~/roam/agenda"))
 
 (provide 'init-roam)
 ;;; init-roam.el ends here
