@@ -6,7 +6,7 @@
 (use-package org-roam
   :ensure t
   :custom
-  (org-roam-directory (file-truename "~/roam"))
+  (org-roam-directory (file-truename "~/notes"))
   (setq org-roam-dailies-directory "daily/")
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
@@ -38,6 +38,22 @@
                             "#+title: ${title}\n#+options: ^:nil\n")
          :immediate-finish t
          :unnarrowed t)
+        ("c" "Misc" plain "%?"
+         :if-new
+         (file+head "misc/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n")
+         :immediate-finish t
+         :unnarrowed t)
+        ("p" "Temps Perdu" plain "%?"
+         :if-new
+         (file+head "temps/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n")
+         :immediate-finish t
+         :unnarrowed t)
+        ("h" "RHEL" plain
+         "%?"
+         :if-new (file+head "rhel/${slug}.org"
+                            "#+title: ${title}\n#+options: ^:nil\n")
+         :immediate-finish t
+         :unnarrowed t)
         ("r" "RTS (RealTimeScheduling - aka 'RATS')" plain
          "%?"
          :if-new (file+head "rts/${slug}.org"
@@ -49,15 +65,21 @@
          (file+head "bpf/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n")
          :immediate-finish t
          :unnarrowed t)
+        ("o" "Old" plain
+         "%?"
+         :if-new (file+head "old/${slug}.org"
+                            "#+title: ${title}\n#+options: ^:nil\n")
+         :immediate-finish t
+         :unnarrowed t)
         ("m" "Memory" plain "%?"
          :if-new
          (file+head "mm/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n")
          :immediate-finish t
          :unnarrowed t)))
 
-(setq org-journal-dir "~/roam/journal")
+(setq org-journal-dir "~/notes/journal")
 
-(setq org-agenda-files (list "~/roam/agenda"))
+(setq org-agenda-files (list "~/notes/agenda"))
 
 (provide 'init-roam)
 ;;; init-roam.el ends here
