@@ -41,7 +41,7 @@
       '(("a" "Agenda" plain
          "%?"
          :if-new (file+head "agenda/${slug}.org"
-                            "#+title: ${title}\n#+options: ^:nil\n")
+                            "#+title: ${title}\n#+options: ^:nil\n#+filetags: :agenda:\n")
          :immediate-finish t
          :unnarrowed t)
         ("t" "Temporary (TBD - aka 'To Be Determined')" plain
@@ -57,24 +57,24 @@
          :unnarrowed t)
         ("p" "Temps Perdu" plain "%?"
          :if-new
-         (file+head "temps/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n")
+         (file+head "temps/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n#+filetags: :temps:\n")
          :immediate-finish t
          :unnarrowed t)
         ("h" "RHEL" plain
          "%?"
          :if-new (file+head "rhel/${slug}.org"
-                            "#+title: ${title}\n#+options: ^:nil\n")
+                            "#+title: ${title}\n#+options: ^:nil\n#+filetags: :rhel:\n")
          :immediate-finish t
          :unnarrowed t)
         ("r" "RTS (RealTimeScheduling - aka 'RATS')" plain
          "%?"
          :if-new (file+head "rts/${slug}.org"
-                            "#+title: ${title}\n#+options: ^:nil\n")
+                            "#+title: ${title}\n#+options: ^:nil\n#+filetags: :rts:\n")
          :immediate-finish t
          :unnarrowed t)
         ("b" "BPF" plain "%?"
          :if-new
-         (file+head "bpf/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n")
+         (file+head "bpf/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n#+filetags: :bpf:\n")
          :immediate-finish t
          :unnarrowed t)
         ("o" "Old" plain
@@ -85,7 +85,7 @@
          :unnarrowed t)
         ("m" "Memory" plain "%?"
          :if-new
-         (file+head "mm/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n")
+         (file+head "mm/${slug}.org" "#+title: ${title}\n#+options: ^:nil\n#+filetags: :mm:\n")
          :immediate-finish t
          :unnarrowed t)))
 
