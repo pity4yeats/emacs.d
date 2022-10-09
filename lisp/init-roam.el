@@ -92,5 +92,7 @@
 
 (setq org-agenda-files (list "~/notes/agenda"))
 
+(setq org-archive-location "~/notes/agenda/agenda.org_archive::* From %s")
+
 (provide 'init-roam)
 ;;; init-roam.el ends here
